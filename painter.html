@@ -43,6 +43,27 @@ function checkPainter(){
 }
 </script>
 
+<div class="container-fluid">
+    <img src="https://www.gardensoyvey.com/uploads/9/6/0/9/96093654/s922031473971641085_p1095_i1_w640.jpeg" class="img-fluid" id="imqge" alt="gardensoyvey", onclick=selectImage() height=100, width=100>    
+</div>
+<script>
+    useImage =1
+    function selectImage(){
+        switch(useImage){
+            case 1:
+                document.getElementById("imqge").src="https://www.gardensoyvey.com/uploads/9/6/0/9/96093654/s922031473971641085_p1095_i1_w640.jpeg";
+                useImage++;
+                break;
+            case 2:
+                document.getElementById("imqge").src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Abelia_flowers.jpg/1200px-Abelia_flowers.jpg";
+                useImage++;
+                break;
+            case 3:
+                document.getElementById("imqge").src="https://www.gardenia.net/storage/app/public/uploads/images/botanikfoto-527036-L.webp";
+                useImage=1
+                break;
+        }
+    }
+</script>
 </body>
-
 </html> 
