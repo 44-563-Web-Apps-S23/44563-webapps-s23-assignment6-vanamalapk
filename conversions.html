@@ -19,6 +19,50 @@
 <p id="result">RESULT </p>
 
 <script> 
+function convert (){
+    var toShow = ""
+    console.log("Getting form values")
+    amount = document.getElementById("form1_age").value
+    conversion_rate = document.getElementById("form1_nick").value
+    for(let i=0; i>0; i=i*2){
+    toShow = toShow+parseInt(amount)*i+" is " +Math.round((parseInt(amount)*parseInt(conversion_rate)*i)*10/10) + "; "
+    }    
+    out = document.getElementById("result")
+    if(toShow){
+        out.innerHTML = "Conversions are: " + toShow
+    }
+}
+function chooseOp() {
+        console.log("Getting input")
+        amountr = document.getElementById("form1_age").value
+        conversion_rater = document.getElementById("form1_nick").value
+        max = document.getElementById("rg1_blue").checked;
+        min = document.getElementById("rg1_green").checked;
+        average = document.getElementById("rg1_red").checked;
+        outt = document.getElementById("resultt")
+       
+        if(min){
+            if(amountr<conversion_rater){
+                outt.innerHTML = amountr
+            }
+            else if(conversion_rater<amountr){
+                outt.innerHTML = conversion_rater
+            }
+            
+        }
+        if(max){
+            if(amountr>conversion_rater){
+                outt.innerHTML = amountr
+            }
+            else if(conversion_rater>amountr){
+                outt.innerHTML = conversion_rater
+            }
+        } 
+        if(average) {
+            var value = (parseInt(conversion_rater)+parseInt(amountr))/2.0;
+            outt.innerHTML = value;
+        } 
+    }
 
 
 </script>
