@@ -1,36 +1,71 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>conversions page   </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" 
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+    </head>
  
 <body>
-<title>Pavankalyan Vanamala shows currency conversions</title>
-<h2>Getting input</h2>
+<h2>Pavankalyan Vanamala shows currency conversions</h2>
 
 <form>
     <label for="form1_age">Enter base amount </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=50> <br>
+    <input type ="number id" id="form1_age" name="form1_age" value=50> <br>
 
     <label for="form1_nick">Enter the conversion rate.</label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus value="35"> <br>
+    <input type ="number id" id="form1_nick" name="form1_nick" autofocus value="35"> <br>
 
-    <input type="button" onclick="resolveForm()" value="Show conversions">
+    <input type="button" onclick="convert()" value="Show conversions">
 </form>
 
 
-<p id="result">RESULT </p>
+<p id="result">conversation value is here </p>
+
+
+<form>
+    <input type="radio" id="rg1_red" name="color" value="mean"   
+      checked >
+    <label for="rg1_red">average</label></br>
+  
+    <input type="radio" id="rg1_blue" name="color" 
+       value="maximum">
+    <label for="rg1_blue">max</label></br>
+  
+    <input type="radio" id="rg1_green" name="color"   
+       value="minimum">
+    <label for="rg1_green">min</label></br>
+
+    <input type="button" class="btn btn-danger" onclick="chooseOp()" value="Get min/max/average">
+</form>
+<p id="resultt">Radio Button output </p>
+
 
 <script> 
+var totalconversionrate = 0;
+var totalamount = 0;
+var amountr;
 function convert (){
     var toShow = ""
     console.log("Getting form values")
     amount = document.getElementById("form1_age").value
     conversion_rate = document.getElementById("form1_nick").value
-    for(let i=0; i>0; i=i*2){
-    toShow = toShow+parseInt(amount)*i+" is " +Math.round((parseInt(amount)*parseInt(conversion_rate)*i)*10/10) + "; "
+    var multiple = 1;
+    for(var i=0; i<5; i++){
+        let res=multiple*amount*conversion_rate;
+        res=Math.round(res*10)/10;
+        toShow+= " "+amount*multiple+" value is "+res+";"
+        multiple*=2;
     }    
     out = document.getElementById("result")
     if(toShow){
         out.innerHTML = "Conversions are: " + toShow
-    }
+    } 
 }
 function chooseOp() {
         console.log("Getting input")
