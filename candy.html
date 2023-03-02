@@ -9,92 +9,91 @@
 
     <h2>Pavankalyan vanamala chooses candy </h2>
 
-<form>
-    <label for="form1_age">dark choclate </label>
-    <input type ="checkbox" id="form1_age" name="form1_age"  value=true> <br>
-
-    <label for="form1_nick">nuts</label>
-    <input type ="checkbox" id="form1_nick" name="form1_nick" value="true"> <br>
-
-    <label for="form1_chewy">Chewy </label>
-    <input type ="checkbox" id="form1_chewy" name="form1_chewy" value=False> <br>
-
-    <input type="button" onclick="selectBox()" value="Select a box">
-</form>
-
-
-<p id="result">This text will be replaced </p>
-
-
-<form>
-    <label for="form1_size">Enter the size </label>
-    <input type ="text" id="form1_size" name="form1_size" value="size"> <br>
-
-    <label for="form1_price">Enter price</label>
-    <input type ="text" id="form1_price" name="form1_price" > <br>
-
-    <input type="button" onclick="updateBox()" value="Update the box">
-</form>
-
-<p id="resultt">This text will be replaced </p>
-
-<script> 
-
-function updateBox(){
-    var my_candy_box = ""
-    console.log("Getting form values")
-    size = document.getElementById("form1_size").value
-    price = document.getElementById("form1_price").value
-    dark = document.getElementById("form1_age").checked
-    nuts = document.getElementById("form1_nick").checked
-    chewy = document.getElementById("form1_chewy").checked
-    my_candy_box.size=price;
-    if(dark){
-        my_candy_box.size=price;
-    }
-    if(nuts){
-        my_candy_box.size=price;
-    }
-    if(chewy){
-        my_candy_box.size=price;
+    <form>
+        <label for="form1_age">Dark Chocolate</label>
+        <input type ="checkbox" id="form1_age" name="form1_age" value=True> <br>
+    
+        <label for="form1_nick">Nuts</label>
+        <input type ="checkbox" id="form1_nick" name="form1_nick" value=True> <br>
+    
+        <label for="form1_chewy">Chewy </label>
+        <input type ="checkbox" id="form1_chewy" name="form1_chewy" value=False> <br>
+    
+        <input type="button" onclick="selectBox()" value="Select a box ">
+    </form>
+    <p id="result">This text will be replaced </p>
+    <form>
+        <label for="form1_size">Enter the size </label>
+        <input type ="text" id="form1_size" name="form1_size" value="size"> <br>
+    
+        <label for="form1_price">Enter price</label>
+        <input type ="text" id="form1_price" name="form1_price" > <br>
+    
+        <input type="button" onclick="updateBox()" value="Update the box">
+    </form>
+    <p id="resultt">This text will be replaced </p>
+    
+    
+    
+    <script> 
+    
+    
+    function updateBox(){
+        
+        var toShow = ""
+        console.log("Getting form values")
+        size = document.getElementById("form1_size").value
+        price = document.getElementById("form1_price").value
+        dark = document.getElementById("form1_age").checked
+        nuts = document.getElementById("form1_nick").checked
+        chewy = document.getElementById("form1_chewy").checked
+    
+        if(dark){
+            my_candy_box.size=price;
+        }
+        if(nuts){
+            my_candy_box.size=price;
+        }
+        if(chewy){
+            my_candy_box.size=price;
+        }
+        
+        out = document.getElementById("resultt")
+        out.innerHTML = JSON.stringify(my_candy_box);
     }
     
-    out = document.getElementById("resultt")
-    out.innerHTML = JSON.stringify(my_candy_box);
-}
-
-
-var  my_candy_box={};
-function selectBox (){
-    my_candy_box={};
-    console.log("Getting form values")
     
-    dark = document.getElementById("form1_age").checked
-    nuts = document.getElementById("form1_nick").checked
-    chewy = document.getElementById("form1_chewy").checked
+    var  my_candy_box={};
+    function selectBox (){
+        my_candy_box={};
+        console.log("Getting form values")
+        
+        dark = document.getElementById("form1_age").checked
+        nuts = document.getElementById("form1_nick").checked
+        chewy = document.getElementById("form1_chewy").checked
+        
+        out = document.getElementById("result")
+        if(dark){
+            my_candy_box.dark=true;
+        } 
+        else{
+            my_candy_box.dark=false;
+        } 
+        if(nuts){
+            my_candy_box.nuts=true;
+        } 
+        else{
+            my_candy_box.nuts=false;
+        } 
+        if(chewy){
+            my_candy_box.chewy=true;
+        } 
+        else{
+            my_candy_box.chewy=false;
+        } 
+        out.innerHTML = JSON.stringify(my_candy_box);
+    }
+    </script>
     
-    out = document.getElementById("result")
-    if(dark){
-        my_candy_box.dark=true;
-    } 
-    else{
-        my_candy_box.dark=false;
-    } 
-    if(nuts){
-        my_candy_box.nuts=true;
-    } 
-    else{
-        my_candy_box.nuts=false;
-    } 
-    if(chewy){
-        my_candy_box.chewy=true;
-    } 
-    else{
-        my_candy_box.chewy=false;
-    } 
-    out.innerHTML = JSON.stringify(my_candy_box);
-}
-</script>
-
-</body>
-</html>
+    </body>
+    </html>
